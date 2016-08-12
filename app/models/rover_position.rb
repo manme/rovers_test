@@ -30,8 +30,7 @@ class RoverPosition
   private
 
   def heading_for(direction)
-    return HEADING[0] if (index_heading == 3 && direction > 0)
-    HEADING[index_heading + direction]
+    HEADING[(index_heading + direction) % 4]
   end
 
   def coords_for_move
