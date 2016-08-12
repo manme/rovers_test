@@ -1,12 +1,12 @@
 class RoverCommands
   COMMANDS = %w(L R M)
 
-  def initialize
-    update('')
+  def initialize(commands = nil)
+    update(commands || '')
   end
 
   def update(commands)
-    @pointer = 0
+    reset_index
     @command_str = commands
   end
 
@@ -20,8 +20,12 @@ class RoverCommands
     @command_str[pointer]
   end
 
+  def reset_index
+    @pointer = 0
+  end
+
   def valid?
-    @command_str =~ /\A[#{COMMANDS.join}]+\z/
+    (@command_str =~ /\A[#{COMMANDS.join}]+\z/) == 0
   end
 
   def self.rotate?(command)
