@@ -19,4 +19,4 @@
 
 ## How test
 
-    ruby test/app_test.rb
+    ruby test/integration/app_test.rb
