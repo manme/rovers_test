@@ -31,7 +31,7 @@ class RoverController
 
   def execute_commands_for(rover)
     while(command = rover.commands.next)
-      new_position = NavigatorHelper.new_position(rover.current_position, command)
+      new_position = NavigateHelper.new_position(rover.current_position, command)
 
       break unless rover.plateau.inside?(new_position) # outside of plateau
       break if cross_any_rovers?(rover, new_position) # meet rovers
